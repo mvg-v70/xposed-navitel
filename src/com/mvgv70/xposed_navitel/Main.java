@@ -54,7 +54,7 @@ public class Main implements IXposedHookLoadPackage {
       BufferedReader fr = new BufferedReader(new FileReader(NAVITEL_INI_FILE));
       try
       {
-    	// читаем все содержимое файла
+        // читаем все содержимое файла
         fr.read(charbuf);
         String content = new String(charbuf);
         pos = content.indexOf("SafeExit = 0");
@@ -68,11 +68,11 @@ public class Main implements IXposedHookLoadPackage {
       if (pos >= 0)
       {
         // меняем 0 на 1
-    	  charbuf[pos+11] = '1';
+        charbuf[pos+11] = '1';
         BufferedWriter fw =  new BufferedWriter(new FileWriter(NAVITEL_INI_FILE));
         try
         {
-          // записывем в файл
+          // записываем в файл
           fw.write(charbuf);
         }
         finally
